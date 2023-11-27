@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://gtn4x6682ck0"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_ccbnq"]
+[ext_resource type="PackedScene" uid="uid://d3esutct62pyy" path="res://scenes/ui/game_over.tscn" id="1_cq6d8"]
+[ext_resource type="PackedScene" uid="uid://gpyr5ng0mis4" path="res://scenes/ui/score_label.tscn" id="2_5s3q6"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_ccbnq")
+
+[node name="ScoreLabel" parent="." instance=ExtResource("2_5s3q6")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_right = 0.0
+grow_horizontal = 0
+scale = Vector2(1.02229, 1)
+text = "SCORE"
+
+[node name="GameOver" parent="." instance=ExtResource("1_cq6d8")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2

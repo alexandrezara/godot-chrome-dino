@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3esutct62pyy"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_u3pse"]
+
+[node name="GameOver" type="VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+alignment = 1
+script = ExtResource("1_u3pse")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "G a m e    O v e r"
+uppercase = true
+
+[node name="ButtonRestart" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+text = " Restart "
+
+[connection signal="pressed" from="ButtonRestart" to="." method="_on_button_restart_pressed"]

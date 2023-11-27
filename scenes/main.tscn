@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://yhby5ev44t8o"]
+
+[ext_resource type="PackedScene" uid="uid://chwf6dbm60qs5" path="res://scenes/background/background.tscn" id="1_f0nk4"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_nmckt"]
+[ext_resource type="PackedScene" uid="uid://rtk3ohealf7o" path="res://scenes/dino/dino.tscn" id="2_41qdg"]
+[ext_resource type="PackedScene" uid="uid://efohrsrgedrc" path="res://scenes/enemy_controller/enemy_spawn.tscn" id="3_3cu8s"]
+[ext_resource type="PackedScene" uid="uid://udo605vltdyl" path="res://scenes/enemy/enemy_cactus.tscn" id="3_r21w0"]
+[ext_resource type="PackedScene" uid="uid://gtn4x6682ck0" path="res://scenes/ui/hud.tscn" id="6_ho8yt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3bim"]
+size = Vector2(151, 12)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_nmckt")
+
+[node name="Background" parent="." instance=ExtResource("1_f0nk4")]
+speed = 600.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(97, 317)
+shape = SubResource("RectangleShape2D_g3bim")
+
+[node name="EnemySpawn" parent="." instance=ExtResource("3_3cu8s")]
+position = Vector2(1227, 304)
+speed = 600.0
+enemy_scene = ExtResource("3_r21w0")
+
+[node name="Dino" parent="." instance=ExtResource("2_41qdg")]
+position = Vector2(101, 253)
+
+[node name="HUD" parent="." instance=ExtResource("6_ho8yt")]
+
+[connection signal="dino_dead" from="Dino" to="." method="_on_dino_dino_dead"]
